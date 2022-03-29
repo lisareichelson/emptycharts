@@ -1,4 +1,4 @@
-import LineChart from "./components/chart.js";
+import Chart from "./components/chart.js";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import logo from "./logo.svg";
@@ -42,7 +42,7 @@ class App extends Component {
             placeholder="Select a country..."
           />
         </div>
-        <LineChart />
+        <Chart />
       </div>
     );
   }
