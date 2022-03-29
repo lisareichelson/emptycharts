@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Chart from "chart.js/auto";
 
 //Below is a default 2 variable line graph. I have no idea how to resize it.
+//MAKe CHANGE: make functions taking in labels and data for each type of graph.
+// fun linegraph(dataxaxis, datayaxis, labelxaxis, labelyaxis...)
+//and return a chart object that can then be rendered outside.
 export default class LineChart extends Component {
   chartRef = React.createRef();
   componentDidMount() {
