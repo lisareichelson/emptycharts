@@ -1,5 +1,6 @@
 import React from "react";
 import Dropdown from "react-dropdown";
+import LineChart from "./LineChart.js";
 import "react-dropdown/style.css";
 import { useNavigate } from "react-router-dom";
 
@@ -41,6 +42,7 @@ const Population = () => {
           placeholder="Select a country..."
         />
       </div>
+      <LineChart />
       <button onClick={() => navigate(-1)}>Go Back Home</button>
     </>
   );
