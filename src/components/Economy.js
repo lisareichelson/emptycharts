@@ -7,6 +7,11 @@ const countries = ["A", "B", "C"]; //Change to load in all the country datas we 
 const defaultCountry = countries[0]; //Change to whatever the U.S. is in the list
 let selection = "";
 
+function set(e) {
+  selection = e.value;
+  console.log(selection + "set?");
+}
+
 const Economy = () => {
   const navigate = useNavigate();
 
@@ -36,7 +41,7 @@ const Economy = () => {
       <div>
         <Dropdown
           options={countries}
-          onChange={(selection = this)}
+          onChange={(e) => set(e.target.value)}
           value={defaultCountry}
           placeholder="Select a country..."
         />
@@ -46,6 +51,6 @@ const Economy = () => {
   );
 };
 
-console.log(selection);
+console.log("Hello " + selection);
 
 export default Economy;
