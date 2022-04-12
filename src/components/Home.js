@@ -95,6 +95,10 @@ const HomeScreen = () => {
       >
         Wealth Data
       </button>
+      <ul style={{ color: "white" }}>
+        <li>j</li>
+        <li>j</li>
+      </ul>
     </>
   );
 };
