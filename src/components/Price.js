@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import Dropdown from "react-dropdown";
 import { Scatter, Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import "react-dropdown/style.css";
@@ -8,7 +7,22 @@ import { useEffect, useState, useRef } from "react";
 import react from "react";
 Chart.register(...registerables);
 
-const Economy = () => {
+//Fill countries with "SELECT name FROM alchoholconsumption" (load in all values for country name)
+/*const countries = [
+  { label: "Fruit", value: "fruit" },
+  { label: "Vegetable", value: "vegetable" },
+  { label: "Meat", value: "meat" },
+];
+const defaultCountry = countries[0];
+let selection = "";
+let value = "";
+*/
+const Price = () => {
+  /*const [value, setValue] = React.useState("fruit");
+  const handleChange = (event) => {
+    setValue(event.target);
+  };*/
+
   var varData = 0;
 
   const navigate = useNavigate();
@@ -22,26 +36,26 @@ const Economy = () => {
   }, []);
 
   const state1 = {
-    labels: ["country1", "USA", "France", "Year4", "Year5", "Year6"], //fill w countries
+    labels: ["winename", "w", "3", "4", "5", "6"], //fill with wine names
     datasets: [
       {
-        label: "Wine vs Country in 2019",
+        label: "Country 1",
         fill: false,
         lineTension: 0.5,
         backgroundColor: "rgba(75,192,192,1)",
         borderColor: "rgba(0,0,0,1)",
         borderWidth: 2,
-        data: [6500, 59, 8000, 81, 56, varData],
+        data: [65, 59, 89, 81, 56, varData],
       },
-      /*{
-        label: "Wine Consumption (KL)",
+      {
+        label: "Country 2",
         fill: false,
         lineTension: 0.5,
         backgroundColor: "rgba(95,222,12,1)",
         borderColor: "rgba(0,0,0,1)",
         borderWidth: 2,
-        data: [0, 9000, 4000, 67, 29, 69],
-      },*/
+        data: [0, 50, 430, 67, 29, 69],
+      },
     ],
   };
 
@@ -56,7 +70,7 @@ const Economy = () => {
           backgroundColor: "grey",
         }}
       >
-        What country produced the best wine in 2019?
+        Does the price and quality of wine have a correlation?
       </h1>
       <h1
         style={{
@@ -68,27 +82,31 @@ const Economy = () => {
       ></h1>
       <p>{apiRes[0]}</p>
 
-      <Line
+      <Scatter
         data={state1}
         options={{
           scales: {
             yAxes: {
               title: {
                 display: true,
-                text: "Mean Rating",
+                text: "Mean Review",
               },
             },
             xAxes: {
               title: {
                 display: true,
-                text: "Country",
+                text: "Mean Price",
               },
             },
           },
           title: {
             display: true,
-            text: "Country and Mean Wine Reviews",
+            text: "Percentage Change Vs Year",
             fontSize: 20,
+          },
+          legend: {
+            display: true,
+            position: "right",
           },
         }}
       />
@@ -101,11 +119,13 @@ const Economy = () => {
           backgroundColor: "pink",
         }}
       >
-        It appears that X country produced the best wine in 2019.
+        It appears that a wine's price is (Once data is in replace this)
+        correlated with it's rated quality.
       </p>
 
       <button onClick={() => navigate(-1)}>Go Back Home</button>
     </>
   );
 };
-export default Economy;
+
+export default Price;

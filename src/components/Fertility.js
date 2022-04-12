@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import Dropdown from "react-dropdown";
-import { Scatter, Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import "react-dropdown/style.css";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,12 @@ import { useEffect, useState, useRef } from "react";
 import react from "react";
 Chart.register(...registerables);
 
-const Economy = () => {
+const Fertility = () => {
+  const [value, setValue] = React.useState("fruit");
+  const handleChange = (event) => {
+    setValue(event.target);
+  };
+
   var varData = 0;
 
   const navigate = useNavigate();
@@ -22,10 +27,10 @@ const Economy = () => {
   }, []);
 
   const state1 = {
-    labels: ["country1", "USA", "France", "Year4", "Year5", "Year6"], //fill w countries
+    labels: ["Year1", "Year2", "Year3", "Year4", "Year5", "Year6"],
     datasets: [
       {
-        label: "Wine vs Country in 2019",
+        label: "Country 1",
         fill: false,
         lineTension: 0.5,
         backgroundColor: "rgba(75,192,192,1)",
@@ -33,15 +38,15 @@ const Economy = () => {
         borderWidth: 2,
         data: [6500, 59, 8000, 81, 56, varData],
       },
-      /*{
-        label: "Wine Consumption (KL)",
+      {
+        label: "Country 2",
         fill: false,
         lineTension: 0.5,
         backgroundColor: "rgba(95,222,12,1)",
         borderColor: "rgba(0,0,0,1)",
         borderWidth: 2,
         data: [0, 9000, 4000, 67, 29, 69],
-      },*/
+      },
     ],
   };
 
@@ -56,7 +61,8 @@ const Economy = () => {
           backgroundColor: "grey",
         }}
       >
-        What country produced the best wine in 2019?
+        Is fertility rate affected by the percentage wine holds in alcohol
+        consumption?
       </h1>
       <h1
         style={{
@@ -75,20 +81,24 @@ const Economy = () => {
             yAxes: {
               title: {
                 display: true,
-                text: "Mean Rating",
+                text: "Fertility Rate",
               },
             },
             xAxes: {
               title: {
                 display: true,
-                text: "Country",
+                text: "Wine Consumption",
               },
             },
           },
           title: {
             display: true,
-            text: "Country and Mean Wine Reviews",
+            text: "Fertility Vs Wine Consumption",
             fontSize: 20,
+          },
+          legend: {
+            display: true,
+            position: "right",
           },
         }}
       />
@@ -101,11 +111,13 @@ const Economy = () => {
           backgroundColor: "pink",
         }}
       >
-        It appears that X country produced the best wine in 2019.
+        It appears that fertility is (Once data is in replace this) correlated
+        with wine consumption.
       </p>
 
       <button onClick={() => navigate(-1)}>Go Back Home</button>
     </>
   );
 };
-export default Economy;
+
+export default Fertility;

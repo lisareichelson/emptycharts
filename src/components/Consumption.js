@@ -3,11 +3,18 @@ import Dropdown from "react-dropdown";
 import LineChart from "./LineChart.js";
 import "react-dropdown/style.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const countries = ["A", "B", "C"]; //Change to load in all the country datas we have
 const defaultCountry = countries[0]; //Change to whatever the U.S. is in the list
 let selection = "";
 
+/*const [value, setValue] = React.useState("example");
+
+const handleChange = (event) => {
+  setValue(event.target.value);
+};
+*/
 const Consumption = () => {
   const navigate = useNavigate();
 
@@ -37,8 +44,8 @@ const Consumption = () => {
       <div>
         <Dropdown
           options={countries}
-          onChange={(selection = this)}
-          value={defaultCountry}
+          onChange={this}
+          value={this}
           placeholder="Select a country..."
         />
       </div>

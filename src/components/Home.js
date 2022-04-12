@@ -25,7 +25,7 @@ const HomeScreen = () => {
       <button
         style={{
           position: "absolute",
-          left: "25%",
+          left: "8%",
           transform: "translateX(-50%)",
         }}
         onClick={() => navigate("/components/Population")}
@@ -35,7 +35,7 @@ const HomeScreen = () => {
       <button
         style={{
           position: "absolute",
-          left: "50%",
+          left: "22%",
           transform: "translateX(-50%)",
         }}
         onClick={() => navigate("/components/Consumption")}
@@ -45,12 +45,55 @@ const HomeScreen = () => {
       <button
         style={{
           position: "absolute",
-          left: "75%",
+          left: "35%",
           transform: "translateX(-50%)",
         }}
         onClick={() => navigate("/components/Economy")}
       >
-        Economic Data
+        Import Data
+      </button>
+      <button
+        style={{
+          position: "absolute",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+        onClick={() => navigate("/components/Quality")}
+      >
+        Quality of Wine Data
+      </button>
+
+      <button
+        style={{
+          position: "absolute",
+          left: "65%",
+          transform: "translateX(-50%)",
+        }}
+        onClick={() => navigate("/components/Fertility")}
+      >
+        Fertility Data
+      </button>
+
+      <button
+        style={{
+          position: "absolute",
+          left: "78%",
+          transform: "translateX(-50%)",
+        }}
+        onClick={() => navigate("/components/Price")}
+      >
+        Price Data
+      </button>
+
+      <button
+        style={{
+          position: "absolute",
+          left: "90%",
+          transform: "translateX(-50%)",
+        }}
+        onClick={() => navigate("/components/Wealth")}
+      >
+        Wealth Data
       </button>
     </>
   );
